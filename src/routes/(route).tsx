@@ -5,5 +5,5 @@ export function GET() {
 	// component logic
 
 	// component layout
-	return redirect("/home/ledgers");
+	return redirect("/auth/sign-in");
 }
