@@ -6,8 +6,7 @@ export default function () {
 
 	// component layout
 	return (
-		<main class="h-screen w-screen overflow-hidden">
-			<h2>Hello Solid!</h2>
+		<main class="grid h-full w-full place-content-center">
 			<Outlet />
 		</main>
 	);
