@@ -4,13 +4,13 @@ export function AlertFailure(props: { ref: HTMLDialogElement }) {
 	// component layout
 	return (
 		<dialog class="modal backdrop-blur" ref={props.ref}>
-			<div class="modal-box">
-				<h2>Failure!</h2>
-				<form method="dialog">
+			<div class="modal-box max-w-sm">
+				<h2>Success!</h2>
+				<form class="mx-auto w-2/3" method="dialog">
 					<input
-						class="btn btn-warning rounded-full text-base-100"
+						class="btn btn-warning w-full rounded-full normal-case text-base-100"
 						type="submit"
-						value="ok"
+						value="Got it!"
 					/>
 				</form>
 			</div>

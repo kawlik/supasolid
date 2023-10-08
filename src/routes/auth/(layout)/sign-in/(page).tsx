@@ -1,5 +1,9 @@
 // @solid
 import { createSignal } from "solid-js";
+import { createStore } from "solid-js/store";
+
+// @root
+import { supabase } from "~/supabase/app";
 
 // @view
 import { AlertFailure } from "./(page).alert-failure";
@@ -10,17 +14,35 @@ export default function () {
 	let alertFailure!: HTMLDialogElement;
 	let alertSuccess!: HTMLDialogElement;
 
-	// form:store
-	const [email, setEmail] = createSignal("");
+	const [formLock, setFormLock] = createSignal(false);
+	const [formData, setFormData] = createStore({
+		email: "",
+	});
 
-	// form:submit
-	const submitForm = (e: SubmitEvent) => {
-		e.preventDefault();
+	const handleSignIn = async () => {
+		setFormLock(true);
+
+		const signIn = await supabase.auth.signInWithOtp({
+			email: formData.email,
+		});
+
+		if (!!signIn.error) {
+			alertFailure.showModal();
+		} else {
+			alertSuccess.showModal();
+		}
+
+		setFormLock(false);
+	};
+
+	const handleSubmit = async (event: SubmitEvent) => {
+		event.preventDefault();
+		await handleSignIn();
 	};
 
 	// component layout
 	return (
-		<main class="grid h-full w-full place-content-center">
+		<>
 			<AlertFailure ref={alertFailure} />
 			<AlertSuccess ref={alertSuccess} />
 			<div class="flex max-w-sm flex-col flex-nowrap gap-6 overflow-y-auto p-4">
@@ -31,21 +53,23 @@ export default function () {
 				</div>
 				<form
 					class="flex flex-col flex-nowrap items-stretch gap-2"
-					onSubmit={submitForm}
+					onSubmit={handleSubmit}
 				>
 					<input
 						class="input input-bordered rounded-full"
-						onChange={(e) => setEmail(e.target.value)}
+						disabled={formLock()}
+						onChange={(e) => setFormData({ email: e.target.value })}
 						placeholder="Your e-mail address"
 						type="email"
 					/>
 					<input
 						class="btn btn-primary rounded-full normal-case text-base-100"
+						disabled={formLock()}
 						type="submit"
 						value="Sign In"
 					/>
 				</form>
 			</div>
-		</main>
+		</>
 	);
 }
