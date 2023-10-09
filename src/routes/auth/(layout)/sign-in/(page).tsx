@@ -46,7 +46,7 @@ export default function () {
 		<div class="flex max-w-sm flex-col flex-nowrap gap-6 overflow-y-auto p-4">
 			<AlertFailure ref={alertFailure} />
 			<AlertSuccess ref={alertSuccess} />
-			<img alt="Welcome" src="/welcome.svg" />
+			<img alt="Welcome" src="/undraw/welcome.svg" />
 			<div class="text-center">
 				<h2 class="text-4xl font-bold">Hello, Stranger!</h2>
 				<p class="text-lg font-thin">Why don't you introduce yourself?</p>

@@ -5,7 +5,7 @@ export function AlertSuccess(props: { ref: HTMLDialogElement }) {
 	return (
 		<dialog class="modal backdrop-blur" ref={props.ref}>
 			<div class="modal-box flex max-w-sm flex-col gap-6">
-				<img alt="Success" src="/public/success.svg" />
+				<img alt="Success" src="/undraw/envelope.svg" />
 				<div>
 					<h3 class="text-2xl font-bold">Success!</h3>
 					<p class="text-justify text-lg font-thin">
@@ -14,18 +14,13 @@ export function AlertSuccess(props: { ref: HTMLDialogElement }) {
 					</p>
 				</div>
 				<div class="flex flex-nowrap justify-center gap-2">
-					<LinkMail href="https://icloud.com/" icon="/icon/apple.svg" name="iCloud" />
-					<LinkMail href="https://gmail.com/" icon="/icon/google.svg" name="Gmail" />
+					<LinkMail href="https://icloud.com/" icon="/iconscout/apple.svg" />
+					<LinkMail href="https://gmail.com/" icon="/iconscout/google.svg" />
 					<LinkMail
 						href="https://outlook.office365.com/"
-						icon="/icon/microsoft.svg"
-						name="Outlook"
+						icon="/iconscout/microsoft.svg"
 					/>
-					<LinkMail
-						href="https://mail.yahoo.com/"
-						icon="/icon/yahoo.svg"
-						name="Yahoo"
-					/>
+					<LinkMail href="https://mail.yahoo.com/" icon="/iconscout/yahoo.svg" />
 				</div>
 				<form class="mx-auto w-2/3" method="dialog">
 					<input
@@ -39,13 +34,13 @@ export function AlertSuccess(props: { ref: HTMLDialogElement }) {
 	);
 }
 
-export function LinkMail(props: { href: string; icon: string; name: string }) {
+export function LinkMail(props: { href: string; icon: string }) {
 	// component logic
 
 	// component layout
 	return (
 		<a class="btn btn-circle btn-outline p-3" href={props.href} target="_blank">
-			<img alt={props.name} src={props.icon} />
+			<img src={props.icon} />
 		</a>
 	);
 }

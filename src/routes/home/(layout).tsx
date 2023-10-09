@@ -9,7 +9,7 @@ export default function () {
 	// component logic
 	const navigate = useNavigate();
 	const register = supabase.auth.onAuthStateChange((_, session) => {
-		if (!session?.user) navigate("/home/ledgers");
+		if (!session?.user) navigate("/auth/sign-in");
 	});
 
 	onCleanup(() => register.data.subscription.unsubscribe());

@@ -8,7 +8,7 @@ export function AlertFailure(props: { ref: HTMLDialogElement }) {
 	return (
 		<dialog class="modal backdrop-blur" ref={props.ref}>
 			<div class="modal-box flex max-w-sm flex-col gap-6">
-				<img alt="Failure" src="/public/failure.svg" />
+				<img alt="Failure" src="/undraw/warning.svg" />
 				<div>
 					<h3 class="text-2xl font-bold">Failure!</h3>
 					<p class="text-justify text-lg font-thin">
