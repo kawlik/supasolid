@@ -14,10 +14,18 @@ export function AlertSuccess(props: { ref: HTMLDialogElement }) {
 					</p>
 				</div>
 				<div class="flex flex-nowrap justify-center gap-2">
-					<LinkMail href="#" icon="/icon/apple.svg" name="iCloud" />
-					<LinkMail href="#" icon="/icon/google.svg" name="Gmail" />
-					<LinkMail href="#" icon="/icon/microsoft.svg" name="Outlook" />
-					<LinkMail href="#" icon="/icon/yahoo.svg" name="Yahoo" />
+					<LinkMail href="https://icloud.com/" icon="/icon/apple.svg" name="iCloud" />
+					<LinkMail href="https://gmail.com/" icon="/icon/google.svg" name="Gmail" />
+					<LinkMail
+						href="https://outlook.office365.com/"
+						icon="/icon/microsoft.svg"
+						name="Outlook"
+					/>
+					<LinkMail
+						href="https://mail.yahoo.com/"
+						icon="/icon/yahoo.svg"
+						name="Yahoo"
+					/>
 				</div>
 				<form class="mx-auto w-2/3" method="dialog">
 					<input
@@ -36,7 +44,7 @@ export function LinkMail(props: { href: string; icon: string; name: string }) {
 
 	// component layout
 	return (
-		<a class="btn btn-circle btn-outline p-3" href={props.href}>
+		<a class="btn btn-circle btn-outline p-3" href={props.href} target="_blank">
 			<img alt={props.name} src={props.icon} />
 		</a>
 	);
