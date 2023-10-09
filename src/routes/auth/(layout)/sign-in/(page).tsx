@@ -69,8 +69,20 @@ export default function () {
 						value="Sign In"
 					/>
 					<aside class="flex justify-center">
-						<a class="btn btn-link btn-sm normal-case">Therms of service</a>
-						<a class="btn btn-link btn-sm normal-case">Privacy policy</a>
+						<a
+							class="btn btn-link btn-sm normal-case"
+							href="/docs/privacy-policy"
+							target="_blank"
+						>
+							Privacy policy
+						</a>
+						<a
+							class="btn btn-link btn-sm normal-case"
+							href="/docs/therms-of-service"
+							target="_blank"
+						>
+							Therms of service
+						</a>
 					</aside>
 				</form>
 			</div>
