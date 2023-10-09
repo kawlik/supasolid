@@ -5,6 +5,10 @@ import { Outlet, useNavigate } from "solid-start";
 // @root
 import { supabase } from "~/supabase/app";
 
+// @view
+import { Footer } from "./(layout).footer";
+import { Header } from "./(layout).header";
+
 export default function () {
 	// component logic
 	const navigate = useNavigate();
@@ -16,8 +20,10 @@ export default function () {
 
 	// component layout
 	return (
-		<main class="grid h-full w-full place-content-center">
+		<main class="flex h-full w-full flex-col justify-between">
+			<Header />
 			<Outlet />
+			<Footer />
 		</main>
 	);
 }
