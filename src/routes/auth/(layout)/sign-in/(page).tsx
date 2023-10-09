@@ -68,6 +68,10 @@ export default function () {
 						type="submit"
 						value="Sign In"
 					/>
+					<aside class="flex justify-center">
+						<a class="btn btn-link btn-sm normal-case">Therms of service</a>
+						<a class="btn btn-link btn-sm normal-case">Privacy policy</a>
+					</aside>
 				</form>
 			</div>
 		</>
